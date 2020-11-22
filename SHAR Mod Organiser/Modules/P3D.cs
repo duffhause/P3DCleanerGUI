@@ -62,31 +62,31 @@ namespace SHARModOrganiserGUI.Modules
             new byte[4] { 0, 0, 1, 7}, //COLLISIONOBJECT_CHUNK 30
             new byte[4] { 1, 0, 1, 7}, //COLLISIONVOLUME_CHUNK 31
             new byte[4] { 18, 69, 0, 0}, //COMPOSITEDRAWABLE_CHUNK 32
-            new byte[4] { 0, 0, 2, 0}, //ANIMATEDOBJECTFACTORY_CHUNK 32
-            new byte[4] { 1, 0, 2, 0}, //ANIMATEDOBJECT 33
-            new byte[4] { 0, 1, 18, 0 }, //SCENEGRAPH_CHUNK 34
-            new byte[4] { 0, 18, 18, 0}, //OLDFRAMECONTROLLER_CHUNK 35
-            new byte[4] { 11, 0, 240, 3}, //WORLDSPHERE_CHUNK 36
-            new byte[4] { 13, 0, 240, 3}, //LENSFLARE_CHUNK 37
-            new byte[4] { 160, 72, 0, 0}, //MULTICONTROLLER_CHUNK 38
-            new byte[4] { 2, 18, 18, 0}, //MULTICONTROLLER2_CHUNK 39
-            new byte[4] { 1, 18, 18, 0}, //FRAMECONTROLLER_CHUNK 40
-            new byte[4] { 0, 0, 2, 8}, //STATEPROPDATAV1_CHUNK 41
-            new byte[4] { 0, 16, 0, 3}, //BREAKABLEOBJECT_CHUNK 42
-            new byte[4] { 12, 0, 240, 3}, //ANIM_CHUNK 43
-            new byte[4] { 14, 0, 240, 3}, //ANIMDYNAPHYS_CHUNK 44
-            new byte[4] { 8, 0, 240, 3}, //ANIMCOLL_CHUNK 45
-            new byte[4] { 0, 32, 1, 0}, //GAMEATTR_CHUNK 46
-            new byte[4] { 5, 0, 0, 3}, //LOCATOR_CHUNK 47
-            new byte[4] { 3, 0, 240, 3}, //INTERSECT_CHUNK 48
-            new byte[4] { 0, 0, 240, 3}, //STATICENTITY_CHUNK 49
-            new byte[4] { 1, 0, 240, 3}, //STATICPHYS_CHUNK 50
-            new byte[4] { 9, 0, 240, 3}, //INSTSTATICENTITY_CHUNK 51
-            new byte[4] { 10, 0, 240, 3}, //INSTSTATICPHYS_CHUNK 52
-            new byte[4] { 2, 0, 240, 3}, //DYNAPHYS_CHUNK 53
-            new byte[4] { 0, 64, 1, 0}, //LOCATOR3_CHUNK 54
-            new byte[4] { 2, 6, 0, 3 }, //ATC_CHUNK 55
-            new byte[4] { 1, 16, 0, 3 }, //INSTPARTICLESYSTEM_CHUNK 56
+            new byte[4] { 0, 0, 2, 0}, //ANIMATEDOBJECTFACTORY_CHUNK 33
+            new byte[4] { 1, 0, 2, 0}, //ANIMATEDOBJECT 34
+            new byte[4] { 0, 1, 18, 0 }, //SCENEGRAPH_CHUNK 35
+            new byte[4] { 0, 18, 18, 0}, //OLDFRAMECONTROLLER_CHUNK 36
+            new byte[4] { 11, 0, 240, 3}, //WORLDSPHERE_CHUNK 37
+            new byte[4] { 13, 0, 240, 3}, //LENSFLARE_CHUNK 38
+            new byte[4] { 160, 72, 0, 0}, //MULTICONTROLLER_CHUNK 39
+            new byte[4] { 2, 18, 18, 0}, //MULTICONTROLLER2_CHUNK 40
+            new byte[4] { 1, 18, 18, 0}, //FRAMECONTROLLER_CHUNK 41
+            new byte[4] { 0, 0, 2, 8}, //STATEPROPDATAV1_CHUNK 42
+            new byte[4] { 0, 16, 0, 3}, //BREAKABLEOBJECT_CHUNK 43
+            new byte[4] { 12, 0, 240, 3}, //ANIM_CHUNK 44
+            new byte[4] { 14, 0, 240, 3}, //ANIMDYNAPHYS_CHUNK 45
+            new byte[4] { 8, 0, 240, 3}, //ANIMCOLL_CHUNK 46
+            new byte[4] { 0, 32, 1, 0}, //GAMEATTR_CHUNK 47
+            new byte[4] { 5, 0, 0, 3}, //LOCATOR_CHUNK 48
+            new byte[4] { 3, 0, 240, 3}, //INTERSECT_CHUNK 49
+            new byte[4] { 0, 0, 240, 3}, //STATICENTITY_CHUNK 50
+            new byte[4] { 1, 0, 240, 3}, //STATICPHYS_CHUNK 51
+            new byte[4] { 9, 0, 240, 3}, //INSTSTATICENTITY_CHUNK 52
+            new byte[4] { 10, 0, 240, 3}, //INSTSTATICPHYS_CHUNK 53
+            new byte[4] { 2, 0, 240, 3}, //DYNAPHYS_CHUNK 54
+            new byte[4] { 0, 64, 1, 0}, //LOCATOR3_CHUNK 55
+            new byte[4] { 2, 6, 0, 3 }, //ATC_CHUNK 56
+            new byte[4] { 1, 16, 0, 3 }, //INSTPARTICLESYSTEM_CHUNK 57
         };
 
         const int HISTORY_INDEX = 0;
@@ -100,6 +100,9 @@ namespace SHARModOrganiserGUI.Modules
         const int INSTSTATICENTITY_INDEX = 52;
         const int INSTSTATICPHYS_INDEX = 53;
         const int DYNAPHYS_INDEX = 54;
+        const int ANIM_COLL_INDEX = 46;
+        const int SKELETON_INDEX = 21;
+        const int MESH_INDEX = 26;
 
         private List<Chunk>[] chunks = new List<Chunk>[chunksOnRecord];
 
@@ -433,7 +436,7 @@ namespace SHARModOrganiserGUI.Modules
 
         public void LexographChunks()
         {
-            foreach (int idx in new int[9] {LOCATOR_INDEX ,SPRITE_INDEX, TEXTURE_INDEX, SHADER_INDEX, STATICENTITY_INDEX, STATICPHYS_INDEX, INSTSTATICENTITY_INDEX, INSTSTATICPHYS_INDEX, DYNAPHYS_INDEX })
+            foreach (int idx in new int[12] {LOCATOR_INDEX ,SPRITE_INDEX, TEXTURE_INDEX, SHADER_INDEX, STATICENTITY_INDEX, STATICPHYS_INDEX, INSTSTATICENTITY_INDEX, INSTSTATICPHYS_INDEX, DYNAPHYS_INDEX, ANIM_COLL_INDEX, SKELETON_INDEX, MESH_INDEX })
 			{
                 Chunk[] tmpComparison = new Chunk[chunks[idx].Count]; 
                 chunks[idx].CopyTo(tmpComparison);
