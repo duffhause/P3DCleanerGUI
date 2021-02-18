@@ -1,4 +1,4 @@
-﻿namespace SHARModOrganiserGUI
+﻿namespace P3DCleaner
 {
 	partial class InputHistoryChunkForm
 	{

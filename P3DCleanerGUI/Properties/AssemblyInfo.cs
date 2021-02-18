@@ -1,15 +1,14 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SHAR Mod Organiser")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("P3D Cleaner")]
+[assembly: AssemblyDescription("Take a P3D file and clean it")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SHAR Mod Organiser")]
+[assembly: AssemblyCompany("Stoner Team")]
+[assembly: AssemblyProduct("P3D Cleaner")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
